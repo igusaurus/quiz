@@ -10,14 +10,19 @@ h2 span, section h3 {
 	display: none;
 }
 body {
-	font-size: xx-large;
+	font-size: large;
 }
 footer, input {
 	font-size: large;
+	text-align: center;
+}
+
+section {
+	width: 95.5%;
+	height: 400px;
 }
 
 .foto {
-    position:fixed;
     width: 100px;
     height: 100px;
 }
@@ -26,6 +31,17 @@ footer, input {
 	text-align: left;
 }
 
-#caja-autor {
-	
+.caja-autor {
+	float: left;
+	width: 250px;
+	height: 150px;
+}
+
+.caja-video {
+	height: 190px;
+	float: left;
+}
+
+video {
+	height: 180px;
 }

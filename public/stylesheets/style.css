@@ -33,3 +33,31 @@ nav, span {
 	margin: 0px 10px 0px 0px;
 }
 
+section {
+	width: 80%;
+	height: 400px;
+}
+
+.foto {
+    width: 100px;
+    height: 100px;
+}
+
+.author {
+	text-align: left;
+}
+
+.caja-autor {
+	float: left;
+	width: 250px;
+	height: 150px;
+}
+
+.caja-video {
+	height: 190px;
+	float: left;
+}
+
+video {
+	height: 180px;
+}
