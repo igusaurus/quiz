@@ -15,3 +15,17 @@ body {
 footer, input {
 	font-size: large;
 }
+
+.foto {
+    position:fixed;
+    width: 100px;
+    height: 100px;
+}
+
+.author {
+	text-align: left;
+}
+
+#caja-autor {
+	
+}

@@ -24,3 +24,27 @@ footer {
 	clear: both;
 	display: block;
 }
+
+.foto {
+    width: 100px;
+    height: 100px;
+}
+
+.author {
+	text-align: left;
+}
+
+.caja-autor {
+	float: left;
+	width: 250px;
+	height: 190px;
+}
+
+.caja-video {
+	height: 190px;
+	float: left;
+}
+
+video {
+	height: 180px;
+}
