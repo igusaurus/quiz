@@ -8,7 +8,11 @@ body {
 
 nav {
 	float: left;
+<<<<<<< HEAD
 	width: 13%;
+=======
+	width: 15%;
+>>>>>>> origin/master
 	height: 200px;
 }
 
