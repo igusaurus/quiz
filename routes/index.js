@@ -22,11 +22,13 @@ router.get('/logout',  sessionController.destroy);
 router.get('/quizes',                      quizController.index);
 router.get('/quizes/:quizId(\\d+)',        quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
-router.get('/quizes/new',                  quizController.new);
-router.get('/quizes/:quizId(\\d+)/edit',   quizController.edit);
-router.post('/quizes/create',              quizController.create);
-router.put('/quizes/:quizId(\\d+)',        quizController.update);
-router.delete('/quizes/:quizId(\\d+)',     quizController.destroy);
+
+// Definicion de rutas de /quizes con privilegios
+router.get('/quizes/new',                  sessionController.loginRequired, quizController.new);
+router.get('/quizes/:quizId(\\d+)/edit',   sessionController.loginRequired, quizController.edit);
+router.post('/quizes/create',              sessionController.loginRequired, quizController.create);
+router.put('/quizes/:quizId(\\d+)',        sessionController.loginRequired, quizController.update);
+router.delete('/quizes/:quizId(\\d+)',     sessionController.loginRequired, quizController.destroy);
 
 router.get('/author', quizController.author);
 

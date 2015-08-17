@@ -92,5 +92,5 @@ exports.destroy = function(req, res) {
 };
 
 exports.author = function(req, res) {
-	res.render('author');
+	res.render('author.ejs', {errors: []});
 };
