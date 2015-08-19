@@ -11,6 +11,6 @@ exports.autenticar = function (login, password, callback) {
 			callback(new Error('Password incorrecta'));
 		}
 	} else {
-		callback(new Error('No exoste el usuario.'));
+		callback(new Error('No existe el usuario.'));
 	}
 };

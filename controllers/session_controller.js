@@ -1,9 +1,27 @@
 // MW Controlador de autenticacion:
 exports.loginRequired = function (req, res, next) {
 	if (req.session.user) {
-		next();
+		if (req.session.cookie.expires === 0) {
+			res.redirect('/logout');
+		} else {
+			req.session.touch();
+			next();
+		}
 	} else {
 		res.redirect('/login');
+	}
+};
+
+exports.autologout = function (req, res, next) {
+	if (req.session.user) {
+		if (req.session.cookie.expires === 0) {
+			res.redirect('/logout');
+		} else {
+			req.session.touch();
+			next();
+		}
+	} else {
+		next();
 	}
 };
 

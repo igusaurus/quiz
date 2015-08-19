@@ -12,16 +12,17 @@ router.get('/', function(req, res) {
 
 // Autoload de comandos con :quizId
 router.param('quizId', quizController.load); // Autoload :quizId
+router.param('commentId', commentController.load); // Autoload :commentId
 
 //Definicion de rutas de sesion
-router.get('/login',  sessionController.new);
-router.post('/login', sessionController.create);
-router.get('/logout',  sessionController.destroy);
+router.get('/login',    sessionController.new);
+router.post('/login',   sessionController.create);
+router.get('/logout',   sessionController.destroy);
 
 // Definicion de rutas de  /quizes
-router.get('/quizes',                      quizController.index);
-router.get('/quizes/:quizId(\\d+)',        quizController.show);
-router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
+router.get('/quizes',                      sessionController.autologout, quizController.index);
+router.get('/quizes/:quizId(\\d+)',        sessionController.autologout, quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer', sessionController.autologout, quizController.answer);
 
 // Definicion de rutas de /quizes con privilegios
 router.get('/quizes/new',                  sessionController.loginRequired, quizController.new);
@@ -32,7 +33,8 @@ router.delete('/quizes/:quizId(\\d+)',     sessionController.loginRequired, quiz
 
 router.get('/author', quizController.author);
 
-router.get('/quizes/:quizId(\\d+)/comments/new', commentController.new);
-router.post('/quizes/:quizId(\\d+)/comments',    commentController.create);
+router.get('/quizes/:quizId(\\d+)/comments/new',                      sessionController.autologout, commentController.new);
+router.post('/quizes/:quizId(\\d+)/comments',                         sessionController.autologout, commentController.create);
+router.get('/quizes/:quizId(\\d+)/comments/:commentId(\\d+)/publish', sessionController.autologout, commentController.publish);
 
 module.exports = router;
