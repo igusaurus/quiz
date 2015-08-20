@@ -38,7 +38,7 @@ exports.create = function(req, res) {
 	var login    = req.body.login;
 	var password = req.body.password;
 
-	var userController = require('./user_Controller');
+	var userController = require('./user_controller');
 	userController.autenticar(login, password, function (error, user) {
 		if (error) { // retornamos los errores de session
 			req.session.errors = [{"message": "Se ha producido un error:" + error}];
@@ -48,7 +48,11 @@ exports.create = function(req, res) {
 
 		// creamos req.session.user
 		req.session.user = {id: user.id, username: user.username};
-		res.redirect(req.session.redir.toString());
+		if (req.session.redir) {
+			res.redirect(req.session.redir.toString());
+		} else {
+			res.redirect('/')
+		}
 	});
 };
 
