@@ -38,7 +38,11 @@ exports.create = function(req, res) {
 	var login    = req.body.login;
 	var password = req.body.password;
 
+<<<<<<< HEAD
 	var userController = require('./user_controller');
+=======
+	var userController = require('user_Controller');
+>>>>>>> origin/master
 	userController.autenticar(login, password, function (error, user) {
 		if (error) { // retornamos los errores de session
 			req.session.errors = [{"message": "Se ha producido un error:" + error}];
